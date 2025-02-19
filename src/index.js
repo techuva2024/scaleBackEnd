@@ -1,8 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
@@ -75,7 +76,7 @@ app.post("/lefu/wifi/record", (req, res) => {
 
 app.use((req, res) => {
   res.status(404).json(
-    createResponse(null, 4040, "Endpoint not found")
+    createResponse(req, 400, "Endpoint not found")
   );
 });
 
