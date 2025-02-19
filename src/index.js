@@ -76,7 +76,7 @@ app.post("/lefu/wifi/record", (req, res) => {
 
 app.use((req, res) => {
   res.status(404).json(
-    createResponse(req, 400, "Endpoint not found")
+    createResponse(null, 400, "Endpoint not found")
   );
 });
 
