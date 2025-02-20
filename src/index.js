@@ -5,8 +5,17 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
+
+
+app.use((req, res, next) => {
+  console.log(`Incoming request: ${req.method} ${req.url}`);
+  next();
+});
 
 
 function createResponse(data, errorCode = 0, text = "Success") {
