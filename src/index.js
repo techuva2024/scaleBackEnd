@@ -90,5 +90,7 @@ app.use((req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  // console.log(`Server running at http://localhost:${port}`);
+   const domain = process.env.RENDER_EXTERNAL_URL || `http://localhost:${port}`;
+  console.log(`Server running at: ${domain}`);
 });
